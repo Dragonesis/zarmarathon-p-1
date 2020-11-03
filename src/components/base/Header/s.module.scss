@@ -1,0 +1,12 @@
+.core {
+  background-color: $mc_third;
+  padding-top: r(14);
+  padding-bottom: r(16);
+  box-shadow: 0 r(4) r(16) rgba(1, 28, 64, 0.2);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

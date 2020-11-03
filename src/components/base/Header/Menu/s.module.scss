@@ -1,0 +1,18 @@
+.core {
+  display: flex;
+}
+
+.link {
+  font-size: r(25);
+  padding-bottom: r(16);
+
+  &:not(:first-child) {
+    margin-left: r(70);
+  }
+}
+
+.current {
+  &::before {
+    transform: scaleX(1);
+  }
+}

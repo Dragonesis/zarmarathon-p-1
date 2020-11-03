@@ -1,0 +1,11 @@
+@function lh($line-height, $font-size) {
+  @return $line-height / $font-size;
+}
+
+@function ls($fz) {
+  @return ($fz/1000) + em;
+}
+
+@function r($fz) {
+  @return ($fz/16) + rem;
+}
