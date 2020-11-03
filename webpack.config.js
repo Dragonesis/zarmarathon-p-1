@@ -36,6 +36,7 @@ module.exports = {
                 mode: 'local',
                 localIdentName: '[name]__[local]__[hash:base64:5]',
                 auto: /\.module\.\w+$/i,
+                exportLocalsConvention: 'camelCase',
               },
             },
           },
