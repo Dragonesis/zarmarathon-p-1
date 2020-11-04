@@ -1,0 +1,22 @@
+.core {
+  color: $mc_black;
+  position: relative;
+
+  &::before {
+    @include anim(transform);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: r(3);
+    transform: scaleX(0);
+    border-radius: r(3);
+    background-color: $mc_black;
+  }
+
+  &:hover {
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.core {
+  width: 100%;
+  margin-top: auto;
+  padding-top: r(34);
+  padding-bottom: r(34);
+}
+
+.item {
+  font-size: $h5;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,18 +1,10 @@
 import React from 'react'
-import cn from 'classnames'
+import LayoutDefault from './layouts/Default'
 
-import styles from './app.modules.scss'
-import './color.css'
-
-console.log(styles)
-
+import './assets/styles/general.scss'
 
 const App = () => {
-  return (
-    <div className={cn(styles.h1 , 'color')}>
-      This test text
-    </div>
-  )
+  return <LayoutDefault />
 }
 
 export default App
