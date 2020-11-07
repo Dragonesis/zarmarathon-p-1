@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { ReactNode } from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode, FC } from 'react'
 import cc from 'classnames'
+import { NavLink } from 'react-router-dom'
 
 import s from './s.module.scss'
 
@@ -12,21 +12,12 @@ interface Props {
   children: ReactNode
 }
 
-const Menu = (props: Props) => {
-  const { to, title, children, className } = props
+const Menu: FC<Props> = ({ to, className, title, children }) => {
   return (
-    // TODO Replace to some router
-    <a href={to} className={cc(s.core, className)} title={title}>
+    <NavLink to={to} className={cc(s.core, className)} activeClassName={s.current} title={title} exact>
       {children}
-    </a>
+    </NavLink>
   )
-}
-
-Menu.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  title: PropTypes.node,
-  className: PropTypes.string,
 }
 
 export default Menu

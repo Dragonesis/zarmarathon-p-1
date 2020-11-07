@@ -1,0 +1,42 @@
+.core {
+  position: relative;
+  margin-right: r(-159);
+  height: r(680);
+}
+
+.layer {
+  transition: 0.2s transform linear;
+  will-change: transform;
+}
+
+.small-poke-ball {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+.cloud {
+  position: absolute;
+  left: 12.31%;
+  bottom: 39.22%;
+}
+
+.cloud-big {
+  position: absolute;
+  left: 49.86%;
+  top: -3%;
+}
+
+.poke-ball {
+  position: absolute;
+  top: 24.38%;
+  right: 0;
+}
+
+.pikachu {
+  position: absolute;
+  top: 0%;
+  left: 4.11%;
+  max-width: 100%;
+  width: 640px;
+}

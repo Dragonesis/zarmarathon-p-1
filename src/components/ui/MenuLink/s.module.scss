@@ -20,3 +20,9 @@
     }
   }
 }
+
+.current {
+  &::before {
+    transform: scaleX(1);
+  }
+}

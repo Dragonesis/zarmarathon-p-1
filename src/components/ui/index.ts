@@ -1,3 +1,3 @@
-// TEMP
-/* eslint-disable import/prefer-default-export */
 export { default as MenuLink } from './MenuLink'
+export { default as Heading } from './Heading'
+export { default as Button } from './Button'
