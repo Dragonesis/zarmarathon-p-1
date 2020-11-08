@@ -1,0 +1,46 @@
+.core2 {
+  display: block;
+  border-radius: r(11);
+}
+
+.size-big {
+  @include anim(box-shadow, padding-bottom);
+  height: r(66);
+  padding-left: r(36);
+  padding-right: r(36);
+  padding-bottom: r(6);
+  font-size: r(23);
+  font-weight: 600;
+  box-shadow: inset 0 r(-9) 0 rgba(0, 0, 0, 0.18);
+
+  &:hover {
+    box-shadow: inset 0 r(-12) 0 rgba(0, 0, 0, 0.18);
+    padding-bottom: r(9);
+  }
+
+  &:active {
+    padding-bottom: r(3);
+    box-shadow: inset 0 r(-6) 0 rgba(0, 0, 0, 0.18);
+  }
+}
+
+.size-small {
+  height: r(16);
+  min-width: r(60);
+  padding-left: r(5);
+  padding-right: r(5);
+  padding-bottom: r(5);
+  font-size: r(12);
+}
+
+.theme-green {
+  background-color: $ac_green;
+}
+
+.theme-yellow {
+  background-color: $ac_yellow;
+}
+
+.width-full {
+  width: 100%;
+}

@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import cc from 'classnames'
+import { useLocation } from 'react-router-dom'
 import { Header, Footer } from '../../components/base'
+import routes from '../../router'
 
 import s from './s.module.scss'
 
-// TODO Replace with dynamic definition
-const THEME = 'color'
+const Default: FC = ({ children }) => {
+  const { pathname } = useLocation()
+  const [theme, setTheme] = useState(s.white)
 
-const Default = () => {
+  useEffect(() => {
+    const layoutTheme = routes.find(({ path }) => path === pathname)?.layoutTheme || s.white
+    // TODO Fix the problem with working with dynamic styles
+    setTheme(s[layoutTheme])
+  }, [pathname])
+
+  const bgColor = theme
+
   return (
-    <div className={cc(s.core, s[THEME])}>
+    <div className={cc(s.core, bgColor)}>
       <Header />
-      <main className="main">
-        <div>This test text</div>
-      </main>
+      <main>{children}</main>
       <Footer />
     </div>
   )

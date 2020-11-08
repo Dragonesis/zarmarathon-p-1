@@ -1,0 +1,27 @@
+.core {
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 186px);
+}
+
+.text-box {
+  max-width: r(515);
+}
+
+.descr {
+  margin-top: r(64);
+  font-size: r(32);
+}
+
+.action {
+  margin-top: r(66);
+}
+
+.parallax-box {
+  width: 100%;
+}

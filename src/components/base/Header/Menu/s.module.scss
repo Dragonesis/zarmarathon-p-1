@@ -10,9 +10,3 @@
     margin-left: r(70);
   }
 }
-
-.current {
-  &::before {
-    transform: scaleX(1);
-  }
-}

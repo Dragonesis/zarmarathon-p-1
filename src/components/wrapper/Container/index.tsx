@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode, FC } from 'react'
 import cc from 'classnames'
 
 import s from './s.module.scss'
@@ -9,14 +8,8 @@ interface Props {
   className?: string
 }
 
-const Container = (props: Props) => {
-  const { children, className } = props
+const Container: FC<Props> = ({ children, className }) => {
   return <div className={cc(s.core, className)}>{children}</div>
-}
-
-Container.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
 }
 
 export default Container
