@@ -1,0 +1,19 @@
+.core {
+  display: inline-block;
+}
+
+.value {
+  width: r(38);
+  height: r(38);
+  border: r(3) solid $mc_dark;
+  border-radius: r(38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: r(15);
+  margin-bottom: r(2);
+}
+
+.label {
+  font-size: r(12);
+}

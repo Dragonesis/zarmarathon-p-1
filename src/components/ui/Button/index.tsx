@@ -5,7 +5,7 @@ import s from './s.module.scss'
 
 interface Props {
   className?: string
-  type?: 'submit' | 'button' | 'reset' | undefined
+  type?: 'submit' | 'button' | 'reset'
   size?: 'size-big' | 'size-small'
   theme: 'theme-green' | 'theme-yellow'
   isFullWidth?: boolean
