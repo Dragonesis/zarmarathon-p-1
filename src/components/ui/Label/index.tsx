@@ -1,34 +1,13 @@
 import React, { FC } from 'react'
 import cc from 'classnames'
+import { typeBgCard } from '../../../types/typeBgCard'
 
 import s from './s.module.scss'
 
 interface Props {
   className?: string
   label: string
-  bg:
-    | 'stile'
-    | 'dark'
-    | 'rock'
-    | 'grass'
-    | 'bug'
-    | 'ice'
-    | 'water'
-    | 'fire'
-    | 'fighting'
-    | 'dragon'
-    | 'yellow'
-    | 'green'
-    | 'blue'
-    | 'normal'
-    | 'gosth'
-    | 'flying'
-    | 'poison'
-    | 'psychic'
-    | 'fairy'
-    | 'ghost'
-    | 'ground'
-    | 'electric'
+  bg: typeBgCard
 }
 
 const Label: FC<Props> = ({ className, label, bg }) => {

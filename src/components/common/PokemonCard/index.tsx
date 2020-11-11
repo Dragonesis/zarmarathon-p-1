@@ -2,13 +2,14 @@ import React, { FC, useEffect, useState } from 'react'
 import cc from 'classnames'
 import { Heading, Stat, Label } from '../../ui'
 import { BG_TYPES } from '../../../const'
+import { typeBgCard } from '../../../types/typeBgCard'
 
 import s from './s.module.scss'
 
 interface Props {
   className?: string
   name: string
-  types: string[]
+  types: typeBgCard[]
   img: string
   attack: number
   defense: number

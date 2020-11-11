@@ -1,5 +1,31 @@
+import { typeBgCard } from '../../types/typeBgCard'
+/* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
-export const pokemons = [
+
+interface IStats {
+  hp: number
+  attack: number
+  defense: number
+  'special-attack': number
+  'special-defense': number
+  speed: number
+}
+interface IPocemons {
+  name_clean: string
+  abilities: string[]
+  types: typeBgCard[]
+  stats: IStats
+  img: string
+  name: string
+  base_experience: number
+  height: number
+  id: number
+  is_default: boolean
+  order: number
+  weight: number
+}
+
+export const pokemons: IPocemons[] = [
   {
     name_clean: 'bulbasaur',
     abilities: ['overgrow', 'chlorophyll'],

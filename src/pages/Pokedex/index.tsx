@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import { Container } from '../../components/wrapper'
 import { Heading } from '../../components/ui'
@@ -14,15 +15,15 @@ const Pokedex = () => {
           800 <b>Pokemons</b> for you to choose your favorite
         </Heading>
         <div className={s.cards}>
-          {pokemons.map((item) => (
+          {pokemons.map(({ name_clean, types, img, stats }) => (
             <PokemonCard
-              key={item.name_clean}
+              key={name_clean}
               className={s.card}
-              name={item.name_clean}
-              types={item.types}
-              img={item.img}
-              attack={item.stats.attack}
-              defense={item.stats.defense}
+              name={name_clean}
+              types={types}
+              img={img}
+              attack={stats.attack}
+              defense={stats.defense}
             />
           ))}
         </div>

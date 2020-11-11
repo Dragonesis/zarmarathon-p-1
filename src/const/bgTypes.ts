@@ -1,4 +1,8 @@
-const BG_TYPES = {
+interface IBigTypes {
+  [n: string]: string
+}
+
+const BG_TYPES: IBigTypes = {
   stile: '#a1a1a1',
   dark: '#a1a1a1',
   rock: '#a1a1a1',

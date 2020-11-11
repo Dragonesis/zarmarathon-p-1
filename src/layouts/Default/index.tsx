@@ -12,8 +12,7 @@ const Default: FC = ({ children }) => {
 
   useEffect(() => {
     const layoutTheme = GENERAL_MENU.find(({ path }) => path === currentPath)?.layoutTheme || s.white
-    // TODO Fix the problem with working with dynamic styles
-    setTheme(s[layoutTheme])
+    setTheme(s[layoutTheme as keyof typeof s])
   }, [currentPath])
 
   const bgColor = theme
