@@ -1,0 +1,80 @@
+.core {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: r(16);
+  min-width: r(60);
+  padding-left: r(5);
+  padding-right: r(5);
+  padding-bottom: r(2);
+  border-radius: r(10);
+  font-size: r(12);
+  box-shadow: inset 0 r(-2) 0 rgba(0, 0, 0, 0.18);
+}
+
+.stile {
+  background-color: $ac_stile;
+}
+.dark {
+  background-color: $ac_dark;
+}
+.rock {
+  background-color: $ac_rock;
+}
+.grass {
+  background-color: $ac_grass;
+}
+.bug {
+  background-color: $ac_bug;
+}
+.ice {
+  background-color: $ac_ice;
+}
+.water {
+  background-color: $ac_water;
+}
+.fire {
+  background-color: $ac_fire;
+}
+.fighting {
+  background-color: $ac_fighting;
+}
+.dragon {
+  background-color: $ac_dragon;
+}
+.yellow {
+  background-color: $ac_yellow;
+}
+.green {
+  background-color: $ac_green;
+}
+.blue {
+  background-color: $ac_blue;
+}
+.normal {
+  background-color: $ac_normal;
+}
+.gosth {
+  background-color: $ac_gosth;
+}
+.flying {
+  background-color: $ac_flying;
+}
+.poison {
+  background-color: $ac_poison;
+}
+.psychic {
+  background-color: $ac_psychic;
+}
+.fairy {
+  background-color: $ac_fairy;
+}
+.ghost {
+  background-color: $ac_ghost;
+}
+.ground {
+  background-color: $ac_ground;
+}
+.electric {
+  background-color: $ac_electric;
+}

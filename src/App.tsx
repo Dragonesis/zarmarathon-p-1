@@ -1,22 +1,17 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { useRoutes } from 'hookrouter'
 import LayoutDefault from './layouts/Default'
-import routes from './router'
+import { NotFound } from './pages'
+import routes from './router/index'
 
 import './assets/styles/general.scss'
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <LayoutDefault>
-        <Switch>
-          {routes.map(({ name, path, isExact, component }) => (
-            <Route key={name} path={path} exact={isExact} component={component} />
-          ))}
-        </Switch>
-      </LayoutDefault>
-    </BrowserRouter>
-  )
+  const mathch = useRoutes(routes)
+  if (!mathch) {
+    return <NotFound />
+  }
+  return <LayoutDefault>{mathch}</LayoutDefault>
 }
 
 export default App

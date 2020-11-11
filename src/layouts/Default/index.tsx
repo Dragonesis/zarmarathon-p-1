@@ -1,20 +1,19 @@
 import React, { FC, useState, useEffect } from 'react'
+import { usePath } from 'hookrouter'
 import cc from 'classnames'
-import { useLocation } from 'react-router-dom'
 import { Header, Footer } from '../../components/base'
-import routes from '../../router'
+import { GENERAL_MENU } from '../../router/index'
 
 import s from './s.module.scss'
 
 const Default: FC = ({ children }) => {
-  const { pathname } = useLocation()
+  const currentPath = usePath()
   const [theme, setTheme] = useState(s.white)
 
   useEffect(() => {
-    const layoutTheme = routes.find(({ path }) => path === pathname)?.layoutTheme || s.white
-    // TODO Fix the problem with working with dynamic styles
-    setTheme(s[layoutTheme])
-  }, [pathname])
+    const layoutTheme = GENERAL_MENU.find(({ path }) => path === currentPath)?.layoutTheme || s.white
+    setTheme(s[layoutTheme as keyof typeof s])
+  }, [currentPath])
 
   const bgColor = theme
 

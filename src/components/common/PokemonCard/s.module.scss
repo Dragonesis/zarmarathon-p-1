@@ -1,0 +1,59 @@
+.core {
+  @include anim(transform);
+  display: flex;
+  background-color: $mc_gray;
+  border-radius: r(8);
+  filter: drop-shadow(r(4) r(4) r(4) rgba(33, 33, 33, 0.1));
+  height: r(180);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.name {
+  text-shadow: r(4) r(4) r(4) rgba(33, 33, 33, 0.1);
+  margin-bottom: r(12);
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.info {
+  width: r(120);
+  padding-top: r(28);
+  padding-bottom: r(28);
+  padding-left: r(28);
+  position: relative;
+}
+
+.stats {
+  margin-bottom: r(8);
+}
+
+.stats,
+.labels {
+  display: flex;
+}
+
+.stat,
+.label {
+  &:not(:last-child) {
+    margin-right: r(12);
+  }
+}
+
+.preview {
+  width: calc(100% - 8.4375rem);
+  border-radius: 0 r(8) r(8) 0;
+  margin-left: auto;
+}
+
+.img {
+  width: 70%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
