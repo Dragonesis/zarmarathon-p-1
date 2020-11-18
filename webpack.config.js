@@ -4,6 +4,11 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { NODE_ENV } = process.env
 
 module.exports = {
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    poll: 1000,
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },

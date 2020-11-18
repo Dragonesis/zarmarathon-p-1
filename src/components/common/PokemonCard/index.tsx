@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import cc from 'classnames'
 import { Heading, Stat, Label } from '../../ui'
-import { BG_TYPES } from '../../../const'
 import { typeBgCard } from '../../../types/typeBgCard'
 
 import s from './s.module.scss'
@@ -16,14 +15,7 @@ interface Props {
 }
 
 const PokemonCard: FC<Props> = ({ className, name, types, img, attack, defense }) => {
-  const [bg, setBg] = useState('')
-  useEffect(() => {
-    if (types.length > 1) {
-      setBg(`linear-gradient(45deg, ${types.map((item) => BG_TYPES[item]).join(',')})`)
-    } else {
-      setBg(BG_TYPES[types[0]])
-    }
-  }, [types])
+  const bg = types.length > 1 ? `linear-gradient(45deg, ${types.map((item) => s[item]).join(',')})` : s[types[0]]
 
   return (
     <div className={cc(s.core, className)}>

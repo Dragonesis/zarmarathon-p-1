@@ -1,0 +1,29 @@
+.core {
+  width: 100%;
+  padding-top: r(40);
+  padding-bottom: r(40);
+}
+
+.img {
+  width: r(120);
+  height: r(120);
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}

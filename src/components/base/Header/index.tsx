@@ -9,11 +9,11 @@ const Header = () => {
   return (
     <div className={s.core}>
       <Container className={s.container}>
-        <img src={logo} alt="" />
+        <img src={logo} alt='' />
         <Menu />
       </Container>
     </div>
   )
 }
 
-export default Header
+export default React.memo(Header)
