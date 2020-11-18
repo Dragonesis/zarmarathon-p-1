@@ -57,3 +57,28 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+:export {
+  stile: $ac_stile;
+  dark: $ac_dark;
+  rock: $ac_rock;
+  grass: $ac_grass;
+  bug: $ac_bug;
+  ice: $ac_ice;
+  water: $ac_water;
+  fire: $ac_fire;
+  fighting: $ac_fighting;
+  dragon: $ac_dragon;
+  yellow: $ac_yellow;
+  green: $ac_green;
+  blue: $ac_blue;
+  normal: $ac_normal;
+  gosth: $ac_gosth;
+  flying: $ac_flying;
+  poison: $ac_poison;
+  psychic: $ac_psychic;
+  fairy: $ac_fairy;
+  ghost: $ac_ghost;
+  ground: $ac_ground;
+  electric: $ac_electric;
+}

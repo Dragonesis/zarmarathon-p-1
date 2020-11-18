@@ -4,6 +4,7 @@ import { Container } from '../../components/wrapper'
 import { Heading, Loader } from '../../components/ui'
 import { PokemonCard } from '../../components/common'
 import s from './s.module.scss'
+import errorImage from '../../assets/img/bad-pikachu.png'
 
 import { typeBgCard } from '../../types/typeBgCard'
 
@@ -43,7 +44,7 @@ const usePokemons = () => {
     const getPokemons = async () => {
       setLoading(true)
       try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons')
+        const response = await fetch('http://zar.hosthotd.ru/api/v1/pokemons')
         const body = await response.json()
         setError(false)
         setTimeout(() => {
@@ -71,34 +72,38 @@ const Pokedex = () => {
   const { data, isLoading, isError } = usePokemons()
 
   if (isError) {
-    return <Container> isError... </Container>
+    return (
+      <Container className={s.core}>
+        <Heading tag='h1' size='size-h3' align='center'>
+          Something went wrong
+        </Heading>
+        <img src={errorImage} className={s.errorImg} alt='' />
+      </Container>
+    )
   }
 
   return (
-    <div className={s.core}>
-      <Container>
-        <Heading tag='h1' size='size-h3' align='center'>
-          {data.total} <b>Pokemons</b> for you to choose your favorite
-        </Heading>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <div className={s.cards}>
-            {data.pokemons.map(({ name_clean, types, img, stats }) => (
-              <PokemonCard
-                key={name_clean}
-                className={s.card}
-                name={name_clean}
-                types={types}
-                img={img}
-                attack={stats.attack}
-                defense={stats.defense}
-              />
-            ))}
-          </div>
-        )}
-      </Container>
-    </div>
+    <Container className={s.core}>
+      <Heading tag='h1' size='size-h3' align='center'>
+        {data.total} <b>Pokemons</b> for you to choose your favorite
+      </Heading>
+      {isLoading && <Loader />}
+      {!isLoading && !isError && (
+        <div className={s.cards}>
+          {data.pokemons.map(({ name_clean, types, img, stats }) => (
+            <PokemonCard
+              key={name_clean}
+              className={s.card}
+              name={name_clean}
+              types={types}
+              img={img}
+              attack={stats.attack}
+              defense={stats.defense}
+            />
+          ))}
+        </div>
+      )}
+    </Container>
   )
 }
 
