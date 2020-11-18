@@ -1,26 +1,18 @@
 /* eslint-disable camelcase */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import cc from 'classnames'
+import { getData } from '../../hooks'
 import { Container } from '../../components/wrapper'
 import { Heading, Loader } from '../../components/ui'
 import { PokemonCard } from '../../components/common'
+import { typeBgCard } from '../../types/typeBgCard'
+
 import s from './s.module.scss'
 import errorImage from '../../assets/img/bad-pikachu.png'
 
-import { typeBgCard } from '../../types/typeBgCard'
-
-interface IStats {
-  hp: number
-  attack: number
-  defense: number
-  'special-attack': number
-  'special-defense': number
-  speed: number
-}
-interface IPocemons {
+interface IPokemons {
   name_clean: string
   abilities: string[]
-  types: typeBgCard[]
-  stats: IStats
   img: string
   name: string
   base_experience: number
@@ -29,47 +21,34 @@ interface IPocemons {
   is_default: boolean
   order: number
   weight: number
-}
-interface IData {
-  total: number | '?'
-  pokemons: IPocemons[]
-}
-
-const usePokemons = () => {
-  const [data, setData] = useState<IData>({ total: '?', pokemons: [] })
-  const [isLoading, setLoading] = useState<boolean>(true)
-  const [isError, setError] = useState<boolean>(false)
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setLoading(true)
-      try {
-        const response = await fetch('http://zar.hosthotd.ru/api/v1/pokemons')
-        const body = await response.json()
-        setError(false)
-        setTimeout(() => {
-          setData(body)
-        }, 1000)
-      } catch (error) {
-        setError(true)
-      } finally {
-        setTimeout(() => {
-          setLoading(false)
-        }, 1000)
-      }
-    }
-    getPokemons()
-  }, [])
-
-  return {
-    data,
-    isLoading,
-    isError,
+  types: typeBgCard[]
+  stats: {
+    hp: number
+    attack: number
+    defense: number
+    'special-attack': number
+    'special-defense': number
+    speed: number
   }
 }
 
+interface IDataPokemons {
+  total: number | '?'
+  pokemons: IPokemons[]
+}
+
 const Pokedex = () => {
-  const { data, isLoading, isError } = usePokemons()
+  const [searchValue, setSearchValue] = useState('')
+  const [query, setQuery] = useState({})
+  const { data, isLoading, isError } = getData<IDataPokemons>('getPokemons', query, [searchValue])
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value)
+    setQuery((x) => ({
+      ...x,
+      name: e.target.value,
+    }))
+  }
 
   if (isError) {
     return (
@@ -85,12 +64,13 @@ const Pokedex = () => {
   return (
     <Container className={s.core}>
       <Heading tag='h1' size='size-h3' align='center'>
-        {data.total} <b>Pokemons</b> for you to choose your favorite
+        {data?.total} <b>Pokemons</b> for you to choose your favorite
       </Heading>
-      {isLoading && <Loader />}
-      {!isLoading && !isError && (
-        <div className={s.cards}>
-          {data.pokemons.map(({ name_clean, types, img, stats }) => (
+      <input type='text' value={searchValue} onChange={handleSearchChange} />
+      {!data && isLoading && <Loader />}
+      {!!data && (
+        <div className={cc(s.cards, isLoading && s.overlay)}>
+          {data?.pokemons.map(({ name_clean, types, img, stats }) => (
             <PokemonCard
               key={name_clean}
               className={s.card}

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import cc from 'classnames'
 import { Heading, Stat, Label } from '../../ui'
 import { typeBgCard } from '../../../types/typeBgCard'
+import unknownPokemon from '../../../assets/img/unknown-pokemon.png'
 
 import s from './s.module.scss'
 
@@ -34,7 +35,7 @@ const PokemonCard: FC<Props> = ({ className, name, types, img, attack, defense }
         </div>
       </div>
       <div className={s.preview} style={{ background: bg }}>
-        <img src={img} alt={name} className={s.img} />
+        <img src={img || unknownPokemon} alt={name} className={cc(s.img, !img && s.unknownPokemon)} />
       </div>
     </div>
   )
