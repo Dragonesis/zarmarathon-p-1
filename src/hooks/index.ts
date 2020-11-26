@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as getData } from './getData'
+export { default as useDebounce } from './useDebounce'

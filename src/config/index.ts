@@ -13,6 +13,12 @@ interface IConfig {
           pathname: string
         }
       }
+      getPokemon: {
+        method: typeMethods
+        uri: {
+          pathname: string
+        }
+      }
     }
   }
 }
@@ -28,6 +34,12 @@ export const config: IConfig = {
         method: 'get',
         uri: {
           pathname: 'pokemons',
+        },
+      },
+      getPokemon: {
+        method: 'get',
+        uri: {
+          pathname: 'pokemon/{id}',
         },
       },
     },
