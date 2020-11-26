@@ -1,51 +1,34 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react'
 import cc from 'classnames'
-import { getData } from '../../hooks'
+import { getData, useDebounce } from '../../hooks'
 import { Container } from '../../components/wrapper'
 import { Heading, Loader } from '../../components/ui'
 import { PokemonCard } from '../../components/common'
-import { typeBgCard } from '../../types/typeBgCard'
-
+import { IPokemons } from '../../interface'
 import s from './s.module.scss'
 import errorImage from '../../assets/img/bad-pikachu.png'
-
-interface IPokemons {
-  name_clean: string
-  abilities: string[]
-  img: string
-  name: string
-  base_experience: number
-  height: number
-  id: number
-  is_default: boolean
-  order: number
-  weight: number
-  types: typeBgCard[]
-  stats: {
-    hp: number
-    attack: number
-    defense: number
-    'special-attack': number
-    'special-defense': number
-    speed: number
-  }
-}
 
 interface IDataPokemons {
   total: number | '?'
   pokemons: IPokemons[]
 }
 
+interface IQuery {
+  name?: string
+}
+
 const Pokedex = () => {
   const [searchValue, setSearchValue] = useState('')
-  const [query, setQuery] = useState({})
-  const { data, isLoading, isError } = getData<IDataPokemons>('getPokemons', query, [searchValue])
+  const [query, setQuery] = useState<IQuery>({})
+  const debouncedValue = useDebounce(searchValue, 500)
+
+  const { data, isLoading, isError } = getData<IDataPokemons>('getPokemons', query, [debouncedValue])
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value)
-    setQuery((x) => ({
-      ...x,
+    setQuery((state: IQuery) => ({
+      ...state,
       name: e.target.value,
     }))
   }
