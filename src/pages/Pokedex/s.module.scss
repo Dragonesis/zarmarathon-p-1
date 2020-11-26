@@ -4,11 +4,17 @@
 }
 
 .cards {
+  @include anim(opacity);
   display: flex;
   flex-wrap: wrap;
   width: calc(100% + 2.125rem);
   margin-left: r(-17);
   margin-top: r(52);
+
+  &.overlay {
+    position: relative;
+    opacity: 0.5;
+  }
 }
 
 .card {

@@ -10,7 +10,7 @@ interface IStats {
   'special-defense': number
   speed: number
 }
-interface IPocemons {
+interface IPokemons {
   name_clean: string
   abilities: string[]
   types: typeBgCard[]
@@ -25,7 +25,7 @@ interface IPocemons {
   weight: number
 }
 
-export const pokemons: IPocemons[] = [
+export const pokemons: IPokemons[] = [
   {
     name_clean: 'bulbasaur',
     abilities: ['overgrow', 'chlorophyll'],
